@@ -1,9 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { UIProvider } from "./context/UIContext";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+
 export default function App() {
   return (
-    <div className="min-h-screen" style={{ background: "var(--bg)", color: "var(--fg)" }}>
-      <p style={{ fontFamily: "var(--font-ui)", padding: "2rem" }}>
-        Malaolu Site — Phase 1 scaffold
-      </p>
-    </div>
+    <BrowserRouter>
+      <UIProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Layout>
+      </UIProvider>
+    </BrowserRouter>
   );
 }
