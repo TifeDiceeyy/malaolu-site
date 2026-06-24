@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { useUI } from "../context/UIContext";
 import { site } from "../data/site";
+import AudioToggle from "./AudioToggle";
 
 export default function TopBar() {
-  const { menuOpen, setMenuOpen } = useUI();
+  const { menuOpen, setMenuOpen, setSearchOpen } = useUI();
+
+  const openSearch = () => {
+    setMenuOpen(false);
+    setSearchOpen(true);
+  };
 
   return (
     <header
@@ -18,17 +24,31 @@ export default function TopBar() {
         {site.name}
       </Link>
 
-      <button
-        type="button"
-        aria-expanded={menuOpen}
-        aria-controls="slide-menu"
-        aria-label={menuOpen ? "Close menu" : "Open menu"}
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
-        style={{ color: "var(--fg)" }}
-      >
-        {menuOpen ? "Close" : "Menu"}
-      </button>
+      <div className="flex items-center gap-6">
+        <AudioToggle />
+
+        <button
+          type="button"
+          aria-label="Open search"
+          onClick={openSearch}
+          className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
+          style={{ color: "var(--fg)" }}
+        >
+          Search
+        </button>
+
+        <button
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="slide-menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
+          style={{ color: "var(--fg)" }}
+        >
+          {menuOpen ? "Close" : "Menu"}
+        </button>
+      </div>
     </header>
   );
 }

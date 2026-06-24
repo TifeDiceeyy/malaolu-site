@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import TopBar from "./TopBar";
 import SlideMenu from "./SlideMenu";
+import SearchOverlay from "./SearchOverlay";
 import Footer from "./Footer";
 
 export default function Layout({ children }: { children: ReactNode }) {
@@ -11,6 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     >
       <TopBar />
       <SlideMenu />
+      <SearchOverlay />
       <main className="flex-1 pt-16">{children}</main>
       <Footer />
     </div>

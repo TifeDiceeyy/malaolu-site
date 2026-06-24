@@ -14,7 +14,14 @@ const UIContext = createContext<UIState | null>(null);
 export function UIProvider({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [audioMuted, setAudioMuted] = useState(true);
+  const [audioMuted, setAudioMuted] = useState<boolean>(() => {
+    try {
+      const v = sessionStorage.getItem("audioMuted");
+      return v !== null ? v === "true" : true;
+    } catch {
+      return true;
+    }
+  });
 
   return (
     <UIContext.Provider
