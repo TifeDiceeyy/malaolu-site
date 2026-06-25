@@ -1,13 +1,20 @@
 export type FeedBlock =
   | {
       type: "images";
+      slug?: string;
       items: { src: string; alt: string; w: number; h: number }[];
       caption?: string;
       href?: string;
     }
-  | { type: "youtube"; id: string; loop?: boolean; caption?: string }
-  | { type: "spotify"; playlistId: string; caption?: string }
-  | { type: "soundcloud"; trackUrl: string; caption?: string }
+  | {
+      type: "youtube";
+      slug?: string;
+      id: string;
+      loop?: boolean;
+      caption?: string;
+    }
+  | { type: "spotify"; slug?: string; playlistId: string; caption?: string }
+  | { type: "soundcloud"; slug?: string; trackUrl: string; caption?: string }
   | { type: "quote"; text: string };
 
 // TODO(owner): real Suavee imagery (Petalos cards, editorials, beanies, caps, etc.)
