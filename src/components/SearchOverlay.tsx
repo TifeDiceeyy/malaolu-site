@@ -12,12 +12,11 @@ export default function SearchOverlay() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
 
-  const results =
-    query.trim()
-      ? feed.filter((b) =>
-          getCaption(b).toLowerCase().includes(query.toLowerCase())
-        )
-      : [];
+  const results = query.trim()
+    ? feed.filter((b) =>
+        getCaption(b).toLowerCase().includes(query.toLowerCase()),
+      )
+    : [];
 
   // Focus input on open; clear query on close
   useEffect(() => {
@@ -84,7 +83,7 @@ export default function SearchOverlay() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search"
           aria-label="Search works"
-          className="w-full bg-transparent border-b text-3xl font-light outline-none py-3 placeholder:opacity-20"
+          className="w-full bg-transparent border-b text-2xl sm:text-3xl font-light outline-none py-3 placeholder:opacity-20"
           style={{
             borderColor: "var(--line)",
             color: "var(--fg)",

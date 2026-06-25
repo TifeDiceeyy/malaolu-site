@@ -114,7 +114,7 @@ export default function About() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           <p
-            className="text-2xl font-light leading-snug"
+            className="text-xl sm:text-2xl font-light leading-snug"
             style={{ color: "var(--fg)" }}
           >
             &ldquo;I believe inspiration exists everywhere — from everyday

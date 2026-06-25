@@ -22,7 +22,7 @@ export default function SlideMenu() {
     if (!el) return;
 
     const focusable = el.querySelectorAll<HTMLElement>(
-      'button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'
+      'button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])',
     );
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
@@ -93,8 +93,11 @@ export default function SlideMenu() {
                 <Link
                   to={item.to}
                   onClick={() => setMenuOpen(false)}
-                  className="text-5xl font-light tracking-tight hover:opacity-50 transition-opacity"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--fg)" }}
+                  className="text-4xl sm:text-5xl font-light tracking-tight hover:opacity-50 transition-opacity"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "var(--fg)",
+                  }}
                 >
                   {item.label}
                 </Link>
@@ -106,13 +109,16 @@ export default function SlideMenu() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
-                  className="text-5xl font-light tracking-tight hover:opacity-50 transition-opacity"
-                  style={{ fontFamily: "var(--font-display)", color: "var(--fg)" }}
+                  className="text-4xl sm:text-5xl font-light tracking-tight hover:opacity-50 transition-opacity"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "var(--fg)",
+                  }}
                 >
                   {item.label}
                 </a>
               </li>
-            )
+            ),
           )}
         </ul>
       </nav>
@@ -141,7 +147,7 @@ export default function SlideMenu() {
                 {s.label}
               </span>
             </li>
-          )
+          ),
         )}
       </ul>
     </div>
