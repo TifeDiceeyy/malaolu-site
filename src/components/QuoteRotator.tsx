@@ -10,7 +10,7 @@ export default function QuoteRotator() {
     if (quotes.length <= 1) return;
     const id = setInterval(
       () => setIndex((i) => (i + 1) % quotes.length),
-      INTERVAL_MS
+      INTERVAL_MS,
     );
     return () => clearInterval(id);
   }, []);
@@ -23,6 +23,7 @@ export default function QuoteRotator() {
       style={{ fontFamily: "var(--font-display)" }}
     >
       <p
+        aria-live="polite"
         className="text-lg font-light leading-relaxed"
         style={{ color: "var(--muted)" }}
       >
