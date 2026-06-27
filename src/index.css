@@ -57,6 +57,22 @@ html {
   transform: scaleX(1);
 }
 
+/* ── About page: bio panel switches between mobile dark overlay and desktop transparent ── */
+.about-bio-panel {
+  background: rgba(0, 0, 0, 0.82);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .about-bio-panel {
+    background: transparent;
+    min-height: auto;
+  }
+}
+
 /* ── Blog masonry card hover ── */
 .masonry-link:hover .masonry-img {
   opacity: 0.12;

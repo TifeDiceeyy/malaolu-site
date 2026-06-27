@@ -10,9 +10,13 @@ const PORTRAIT = "/assets/malaolu/IMG_3695.jpg";
 export default function About() {
   return (
     <article style={{ fontFamily: "var(--font-ui)", color: "#ffffff" }}>
-      {/* ── Section 1: Bio panel (left) + portrait (right) ── */}
-      <section className="relative" style={{ minHeight: "100svh" }}>
-        {/* Portrait — fills the entire section background */}
+      {/* ── Section 1: Bio over portrait ── */}
+      {/* Mobile: full dark panel | md+: text at bottom over gradient */}
+      <section
+        className="relative md:flex md:items-end"
+        style={{ minHeight: "100svh" }}
+      >
+        {/* Portrait — always full-bleed background */}
         <div className="absolute inset-0 overflow-hidden">
           <img
             src={PORTRAIT}
@@ -22,11 +26,17 @@ export default function About() {
           />
         </div>
 
-        {/* Bio panel — full width */}
+        {/* Gradient — md+ only */}
         <div
-          className="relative z-10 flex flex-col justify-center px-6 py-24 w-full"
-          style={{ background: "rgba(0,0,0,0.82)", minHeight: "100svh" }}
-        >
+          className="hidden md:block absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.55) 45%, transparent 100%)",
+          }}
+        />
+
+        {/* Bio panel */}
+        <div className="about-bio-panel relative z-10 px-6 md:px-10 py-6 md:pb-16 w-full md:max-w-2xl">
           <h1
             className="mb-2"
             style={{
