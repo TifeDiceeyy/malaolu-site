@@ -22,9 +22,9 @@ export default function About() {
           />
         </div>
 
-        {/* Bio panel — full width on mobile, left half on sm+ (landscape/desktop) */}
+        {/* Bio panel — full width */}
         <div
-          className="relative z-10 flex flex-col justify-center px-6 sm:px-10 py-24 w-full sm:w-1/2 lg:w-[45%]"
+          className="relative z-10 flex flex-col justify-center px-6 py-24 w-full"
           style={{ background: "rgba(0,0,0,0.82)", minHeight: "100svh" }}
         >
           <h1
@@ -103,9 +103,6 @@ export default function About() {
             </p>
           </div>
         </div>
-
-        {/* Right side — portrait is visible here (spacer for layout) */}
-        <div className="hidden sm:block flex-1" aria-hidden="true" />
       </section>
 
       {/* ── Section 2: Pull-quote on dark solid background ── */}
