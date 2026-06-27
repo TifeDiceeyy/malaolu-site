@@ -12,8 +12,8 @@ export const site = {
   ],
   socials: [
     { label: "Gmail", href: "mailto:olaideabdulrazak5@gmail.com" },
-    { label: "Instagram", href: "" }, // TODO(owner): handle
-    { label: "Twitter", href: "" }, // TODO(owner): handle
-    { label: "TikTok", href: "" }, // TODO(owner): handle
+    { label: "Instagram", href: "https://www.instagram.com/bobissenpai" },
+    { label: "Twitter", href: "https://x.com/bobissenpai" },
+    { label: "TikTok", href: "https://www.tiktok.com/@bobissenpai" },
   ],
 } as const;
