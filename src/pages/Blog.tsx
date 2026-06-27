@@ -24,23 +24,23 @@ function MasonryCard({ img }: { img: (typeof feedImages)[0] }) {
   return (
     <Link
       to={`/blog/${img.slug}`}
-      className="block relative overflow-hidden group"
+      className="masonry-link block relative overflow-hidden"
       style={{ marginBottom: "var(--gap)" }}
     >
       {/* Aspect-ratio box → zero layout shift */}
       <div style={{ paddingBottom: `${aspectPct}%`, position: "relative" }}>
-        {/* Image — dims on hover (desktop) */}
+        {/* Image — dims on hover via plain CSS */}
         <img
           src={img.src}
           alt={img.alt}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-[0.12]"
+          className="masonry-img absolute inset-0 w-full h-full object-cover"
         />
 
         {/* Desktop hover overlay — full dark panel with all details */}
         <div
-          className="absolute inset-0 flex-col justify-center px-6 py-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex"
+          className="masonry-overlay absolute inset-0 flex-col justify-center px-6 py-8 hidden md:flex"
           style={{ background: "rgba(8,8,8,0.88)" }}
         >
           <p

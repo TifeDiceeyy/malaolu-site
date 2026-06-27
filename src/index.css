@@ -56,3 +56,18 @@ html {
 .nav-animated:focus-visible::after {
   transform: scaleX(1);
 }
+
+/* ── Blog masonry card hover ── */
+.masonry-link:hover .masonry-img {
+  opacity: 0.12;
+}
+.masonry-link:hover .masonry-overlay {
+  opacity: 1;
+}
+.masonry-img {
+  transition: opacity 0.5s ease;
+}
+.masonry-overlay {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
