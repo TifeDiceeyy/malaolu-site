@@ -11,7 +11,7 @@ export default function About() {
   return (
     <article style={{ fontFamily: "var(--font-ui)", color: "#ffffff" }}>
       {/* ── Section 1: Bio panel (left) + portrait (right) ── */}
-      <section className="relative flex" style={{ minHeight: "100svh" }}>
+      <section className="relative" style={{ minHeight: "100svh" }}>
         {/* Portrait — fills the entire section background */}
         <div className="absolute inset-0 overflow-hidden">
           <img
