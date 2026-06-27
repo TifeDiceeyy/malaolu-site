@@ -57,19 +57,30 @@ html {
   transform: scaleX(1);
 }
 
-/* ── About page: bio panel switches between mobile dark overlay and desktop transparent ── */
+/* ── About page bio panel ── */
+/* Mobile: absolute dark overlay covering full portrait */
 .about-bio-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.82);
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 6rem 1.5rem 2rem;
 }
 
+/* Tablet/desktop: transparent panel at bottom over gradient */
 @media (min-width: 768px) {
   .about-bio-panel {
+    inset: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 42rem;
     background: transparent;
-    min-height: auto;
+    padding: 0 2.5rem 4rem;
+    display: block;
   }
 }
 

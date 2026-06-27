@@ -10,33 +10,38 @@ const PORTRAIT = "/assets/malaolu/IMG_3695.jpg";
 export default function About() {
   return (
     <article style={{ fontFamily: "var(--font-ui)", color: "#ffffff" }}>
-      {/* ── Section 1: Bio over portrait ── */}
-      {/* Mobile: full dark panel | md+: text at bottom over gradient */}
+      {/* ── Section 1: Portrait + Bio ──
+          Mobile:  dark panel covers full viewport, text centred
+          md+:     image shows at its natural aspect ratio (no crop),
+                   gradient at bottom, bio text overlaid               */}
       <section
-        className="relative md:flex md:items-end"
-        style={{ minHeight: "100svh" }}
+        className="relative"
+        style={{
+          /* Natural image ratio (3956 × 5120) — no vertical crop on desktop.
+             min-height ensures enough space for the dark panel on mobile. */
+          aspectRatio: "3956 / 5120",
+          minHeight: "100svh",
+        }}
       >
-        {/* Portrait — always full-bleed background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={PORTRAIT}
-            alt="Abdulrazak Olaide Malaolu"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "70% top" }}
-          />
-        </div>
+        {/* Portrait — always the background */}
+        <img
+          src={PORTRAIT}
+          alt="Abdulrazak Olaide Malaolu"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "60% top" }}
+        />
 
-        {/* Gradient — md+ only */}
+        {/* Gradient — tablet / desktop only */}
         <div
           className="hidden md:block absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.55) 45%, transparent 100%)",
+              "linear-gradient(to top, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.5) 45%, transparent 100%)",
           }}
         />
 
-        {/* Bio panel */}
-        <div className="about-bio-panel relative z-10 px-6 md:px-10 py-6 md:pb-16 w-full md:max-w-2xl">
+        {/* Bio panel — CSS class switches layout between mobile and md+ */}
+        <div className="about-bio-panel">
           <h1
             className="mb-2"
             style={{
@@ -50,7 +55,7 @@ export default function About() {
             {site.name}
           </h1>
           <p
-            className="text-[0.58rem] tracking-[0.28em] uppercase mb-10"
+            className="text-[0.58rem] tracking-[0.28em] uppercase mb-8"
             style={{ color: "#ffffff" }}
           >
             {site.role}
@@ -115,7 +120,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Section 2: Pull-quote on dark solid background ── */}
+      {/* ── Pull-quote ── */}
       <section
         className="px-4 sm:px-12 py-16 md:py-24"
         style={{
@@ -148,17 +153,7 @@ export default function About() {
         </blockquote>
       </section>
 
-      {/* ── Section 3: Full portrait only — visible when scrolled to bottom ── */}
-      <section className="relative" style={{ minHeight: "100svh" }}>
-        <img
-          src={PORTRAIT}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center top" }}
-        />
-      </section>
-
-      {/* ── Section 4: Contact ── */}
+      {/* ── Contact ── */}
       <section
         className="px-4 sm:px-8 py-8 flex flex-wrap gap-6"
         style={{
