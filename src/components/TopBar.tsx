@@ -75,7 +75,7 @@ export default function TopBar() {
 
         {/* Social icons */}
         {socialNav.map((s) =>
-          s.href ? (
+          (s.href as string) ? (
             <a
               key={s.label}
               href={s.href}

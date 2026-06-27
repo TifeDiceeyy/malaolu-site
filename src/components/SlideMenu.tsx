@@ -146,7 +146,7 @@ export default function SlideMenu() {
       {/* Social icons row — centered at bottom */}
       <div className="shrink-0 flex items-center justify-center gap-8 pb-4">
         {site.socials.map((s) =>
-          s.href ? (
+          (s.href as string) ? (
             <a
               key={s.label}
               href={s.href}
