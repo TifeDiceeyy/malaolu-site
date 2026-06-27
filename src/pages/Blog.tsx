@@ -19,7 +19,6 @@ const shuffled = [...feedImages].sort((a, b) => {
 });
 
 function MasonryCard({ img }: { img: (typeof feedImages)[0] }) {
-  const [hovered, setHovered] = useState(false);
   const aspectPct = ((img.h / img.w) * 100).toFixed(2);
 
   return (
@@ -27,31 +26,22 @@ function MasonryCard({ img }: { img: (typeof feedImages)[0] }) {
       to={`/blog/${img.slug}`}
       className="block relative overflow-hidden group"
       style={{ marginBottom: "var(--gap)" }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       {/* Aspect-ratio box → zero layout shift */}
       <div style={{ paddingBottom: `${aspectPct}%`, position: "relative" }}>
-        {/* Image fades out on hover */}
+        {/* Image — dims on hover (desktop) */}
         <img
           src={img.src}
           alt={img.alt}
           loading="lazy"
           decoding="async"
-          className="card-img absolute inset-0 w-full h-full object-cover"
-          style={{
-            transition: "opacity 0.5s ease",
-            opacity: hovered ? 0.15 : 1,
-          }}
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-[0.12]"
         />
-        {/* Dark overlay + text — fades in on hover (always visible on touch) */}
+
+        {/* Desktop hover overlay — full dark panel with all details */}
         <div
-          className="card-overlay absolute inset-0 flex flex-col justify-center px-6 py-8"
-          style={{
-            background: "rgba(8,8,8,0.88)",
-            opacity: hovered ? 1 : 0,
-            transition: "opacity 0.45s ease",
-          }}
+          className="absolute inset-0 flex-col justify-center px-6 py-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex"
+          style={{ background: "rgba(8,8,8,0.88)" }}
         >
           <p
             className="text-[0.55rem] tracking-[0.3em] uppercase mb-3"
@@ -82,11 +72,39 @@ function MasonryCard({ img }: { img: (typeof feedImages)[0] }) {
             {img.excerpt}
           </p>
           <span
-            className="mt-6 text-[0.55rem] tracking-[0.28em] uppercase inline-flex items-center gap-2"
+            className="mt-6 text-[0.55rem] tracking-[0.28em] uppercase"
             style={{ color: "#ffffff", fontFamily: "var(--font-ui)" }}
           >
             View post ↗
           </span>
+        </div>
+
+        {/* Mobile caption — always visible at bottom of image */}
+        <div
+          className="md:hidden absolute bottom-0 left-0 right-0 px-4 py-4"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.4) 70%, transparent 100%)",
+          }}
+        >
+          <p
+            className="text-[0.5rem] tracking-[0.28em] uppercase mb-1"
+            style={{ color: "#ffffff", fontFamily: "var(--font-ui)" }}
+          >
+            {img.category}
+          </p>
+          <p
+            className="leading-snug"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "0.95rem",
+              color: "#ffffff",
+            }}
+          >
+            {img.title}
+          </p>
         </div>
       </div>
     </Link>
