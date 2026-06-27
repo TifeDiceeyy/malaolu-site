@@ -9,22 +9,22 @@ export type BlogPost = {
 
 export const posts: BlogPost[] = [
   {
-    slug: "suavee-ss-2025",
-    title: "Behind the Collection: Suavee S/S 2025",
+    slug: "suavee-ss-2026",
+    title: "Behind the Collection: Suavee S/S 2026",
     category: "Studio",
-    date: "2025-04-10",
+    date: "2026-04-10",
     excerpt:
-      "A look at the process behind Suavee's Spring/Summer 2025 collection — from initial concept sketches to the final editorial shoot.",
+      "A look at the process behind Suavee's Spring/Summer 2026 collection — from initial concept sketches to the final editorial shoot.",
     images: [
       {
         src: "/assets/blog/IMG_4575.jpg",
-        alt: "Suavee S/S 2025 editorial",
+        alt: "Suavee S/S 2026 editorial",
         w: 3780,
         h: 6720,
       },
       {
         src: "/assets/blog/IMG_4578.jpg",
-        alt: "Suavee S/S 2025 campaign",
+        alt: "Suavee S/S 2026 campaign",
         w: 3780,
         h: 6720,
       },
@@ -34,7 +34,7 @@ export const posts: BlogPost[] = [
     slug: "art-direction-notes",
     title: "Art Direction Notes: What Makes a Strong Campaign",
     category: "Process",
-    date: "2025-06-22",
+    date: "2026-06-22",
     excerpt:
       "Strong campaign creative isn't about budget — it's about conviction, cohesion, and the clarity of a single decisive idea.",
     images: [
@@ -56,7 +56,7 @@ export const posts: BlogPost[] = [
     slug: "styling-garment-space",
     title: "On Styling: The Relationship Between Garment and Space",
     category: "Craft",
-    date: "2025-08-15",
+    date: "2026-08-15",
     excerpt:
       "Styling is environmental. The way a piece sits against a background, a texture, a body — that relationship defines everything.",
     images: [
