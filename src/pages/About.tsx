@@ -29,7 +29,7 @@ export default function About() {
         />
 
         {/* Bio panel */}
-        <div className="relative z-10 px-8 pb-16 w-full max-w-2xl">
+        <div className="relative z-10 px-4 sm:px-8 pb-12 sm:pb-16 w-full max-w-2xl">
           <h1
             className="mb-1"
             style={{
@@ -44,14 +44,14 @@ export default function About() {
           </h1>
           <p
             className="text-[0.6rem] tracking-[0.28em] uppercase mb-10"
-            style={{ color: "#cccccc" }}
+            style={{ color: "#ffffff" }}
           >
             {site.role}
           </p>
 
           <div
             className="flex flex-col gap-5 text-sm leading-relaxed"
-            style={{ color: "#f0f0f0" }}
+            style={{ color: "#ffffff" }}
           >
             <p>
               Abdulrazak Olaide Malaolu is a multidisciplinary creative director
@@ -115,7 +115,7 @@ export default function About() {
 
       {/* ── Pull-quote ── */}
       <section
-        className="px-8 py-24"
+        className="px-4 sm:px-8 py-12 md:py-24"
         style={{ borderTop: "1px solid var(--line)" }}
       >
         <blockquote
@@ -125,7 +125,7 @@ export default function About() {
           <p
             className="font-light leading-snug"
             style={{
-              fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
+              fontSize: "clamp(1rem, 4vw, 1.6rem)",
               color: "#ffffff",
             }}
           >
@@ -139,7 +139,7 @@ export default function About() {
           </p>
           <footer
             className="mt-8 text-[0.6rem] tracking-[0.28em] uppercase"
-            style={{ color: "#cccccc", fontFamily: "var(--font-ui)" }}
+            style={{ color: "#ffffff", fontFamily: "var(--font-ui)" }}
           >
             — {site.name}
           </footer>
@@ -148,13 +148,13 @@ export default function About() {
 
       {/* ── Contact line ── */}
       <section
-        className="px-8 py-12 flex flex-wrap gap-8"
+        className="px-4 sm:px-8 py-8 sm:py-12 flex flex-wrap gap-6"
         style={{ borderTop: "1px solid var(--line)" }}
       >
         <a
           href={`mailto:${site.email}`}
           className="text-[0.6rem] tracking-[0.28em] uppercase hover:opacity-60 transition-opacity"
-          style={{ color: "#cccccc" }}
+          style={{ color: "#ffffff" }}
         >
           {site.email}
         </a>
@@ -164,7 +164,7 @@ export default function About() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-[0.6rem] tracking-[0.28em] uppercase hover:opacity-60 transition-opacity"
-            style={{ color: "#cccccc" }}
+            style={{ color: "#ffffff" }}
           >
             Suavee Studios ↗
           </a>

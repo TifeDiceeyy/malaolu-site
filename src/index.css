@@ -6,7 +6,7 @@
 :root {
   --bg: #080808;
   --fg: #ffffff;
-  --muted: #cccccc;
+  --muted: #ffffff;
   --line: #2a2a2a;
   --accent: #ffffff;
   --maxw: 1400px;
@@ -55,4 +55,14 @@ html {
 .nav-animated:hover::after,
 .nav-animated:focus-visible::after {
   transform: scaleX(1);
+}
+
+/* Blog masonry cards: always show overlay on touch/mobile (no hover) */
+@media (hover: none) {
+  .card-img {
+    opacity: 0.18 !important;
+  }
+  .card-overlay {
+    opacity: 1 !important;
+  }
 }

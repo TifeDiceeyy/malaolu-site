@@ -113,6 +113,7 @@ export type FeedImage = {
   slug: string;
   title: string;
   category: string;
+  excerpt: string;
 };
 
 export const feedImages: FeedImage[] = posts.flatMap((p) =>
@@ -121,5 +122,6 @@ export const feedImages: FeedImage[] = posts.flatMap((p) =>
     slug: p.slug,
     title: p.title,
     category: p.category,
+    excerpt: p.excerpt,
   })),
 );

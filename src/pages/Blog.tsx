@@ -32,53 +32,61 @@ function MasonryCard({ img }: { img: (typeof feedImages)[0] }) {
     >
       {/* Aspect-ratio box → zero layout shift */}
       <div style={{ paddingBottom: `${aspectPct}%`, position: "relative" }}>
+        {/* Image fades out on hover */}
         <img
           src={img.src}
           alt={img.alt}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="card-img absolute inset-0 w-full h-full object-cover"
           style={{
-            transition: "transform 0.7s ease",
-            transform: hovered ? "scale(1.03)" : "scale(1)",
+            transition: "opacity 0.5s ease",
+            opacity: hovered ? 0.15 : 1,
           }}
         />
-        {/* Hover overlay */}
+        {/* Dark overlay + text — fades in on hover (always visible on touch) */}
         <div
-          className="absolute inset-0 flex flex-col justify-end p-5"
+          className="card-overlay absolute inset-0 flex flex-col justify-center px-6 py-8"
           style={{
-            background: hovered
-              ? "linear-gradient(to top, rgba(10,10,10,0.82) 30%, transparent 80%)"
-              : "transparent",
-            transition: "background 0.4s ease",
+            background: "rgba(8,8,8,0.88)",
+            opacity: hovered ? 1 : 0,
+            transition: "opacity 0.45s ease",
           }}
         >
-          <div
+          <p
+            className="text-[0.55rem] tracking-[0.3em] uppercase mb-3"
+            style={{ color: "#ffffff", fontFamily: "var(--font-ui)" }}
+          >
+            {img.category}
+          </p>
+          <p
+            className="leading-tight mb-4"
             style={{
-              opacity: hovered ? 1 : 0,
-              transform: hovered ? "translateY(0)" : "translateY(6px)",
-              transition: "opacity 0.35s ease, transform 0.35s ease",
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(1rem, 2.2vw, 1.4rem)",
+              color: "#ffffff",
             }}
           >
-            <p
-              className="text-[0.55rem] tracking-[0.28em] uppercase mb-1"
-              style={{ color: "var(--muted)", fontFamily: "var(--font-ui)" }}
-            >
-              {img.category}
-            </p>
-            <p
-              className="leading-tight"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontStyle: "italic",
-                fontWeight: 400,
-                fontSize: "clamp(0.9rem, 2vw, 1.2rem)",
-                color: "var(--fg)",
-              }}
-            >
-              {img.title}
-            </p>
-          </div>
+            {img.title}
+          </p>
+          <p
+            className="text-xs leading-relaxed"
+            style={{
+              color: "#ffffff",
+              fontFamily: "var(--font-ui)",
+              fontWeight: 300,
+            }}
+          >
+            {img.excerpt}
+          </p>
+          <span
+            className="mt-6 text-[0.55rem] tracking-[0.28em] uppercase inline-flex items-center gap-2"
+            style={{ color: "#ffffff", fontFamily: "var(--font-ui)" }}
+          >
+            View post ↗
+          </span>
         </div>
       </div>
     </Link>
@@ -147,7 +155,7 @@ export default function Blog() {
 
       {/* ── Scrapbook masonry feed ── */}
       <div
-        className="px-4 pt-4 pb-32 mx-auto w-full"
+        className="px-4 pt-4 pb-16 md:pb-32 mx-auto w-full"
         style={{ maxWidth: "var(--maxw)" }}
       >
         {/* CSS columns masonry — 3 cols desktop, 2 tablet, 1 mobile */}

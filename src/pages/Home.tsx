@@ -77,7 +77,7 @@ export default function Home() {
 
       {/* ── Feed ── */}
       <div
-        className="px-6 pb-32 mx-auto w-full"
+        className="px-4 sm:px-6 pb-16 md:pb-32 mx-auto w-full"
         style={{ maxWidth: "var(--maxw)" }}
       >
         <QuoteRotator />
