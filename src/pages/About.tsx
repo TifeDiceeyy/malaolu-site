@@ -5,45 +5,42 @@ const suavee = site.nav.find(
   (item): item is ExternalNavItem => item.label === "Suavee",
 );
 
+const PORTRAIT = "/assets/malaolu/IMG_3695.jpg";
+
 export default function About() {
   return (
     <article style={{ fontFamily: "var(--font-ui)", color: "#ffffff" }}>
-      {/* ── Hero: full-bleed portrait + bio overlay ── */}
-      <section className="relative min-h-[90vh] flex items-end">
-        {/* Portrait image */}
+      {/* ── Section 1: Bio panel (left) + portrait (right) ── */}
+      <section className="relative flex" style={{ minHeight: "100svh" }}>
+        {/* Portrait — fills the entire section background */}
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/assets/malaolu/IMG_3695.jpg"
+            src={PORTRAIT}
             alt="Abdulrazak Olaide Malaolu"
             className="w-full h-full object-cover"
+            style={{ objectPosition: "70% top" }}
           />
         </div>
 
-        {/* Gradient so bio text reads over the image */}
+        {/* Bio panel — full width on mobile, left half on sm+ (landscape/desktop) */}
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.5) 50%, transparent 100%)",
-          }}
-        />
-
-        {/* Bio panel */}
-        <div className="relative z-10 px-4 sm:px-8 pb-12 sm:pb-16 w-full max-w-2xl">
+          className="relative z-10 flex flex-col justify-center px-6 sm:px-10 py-24 w-full sm:w-1/2 lg:w-[45%]"
+          style={{ background: "rgba(0,0,0,0.82)", minHeight: "100svh" }}
+        >
           <h1
-            className="mb-1"
+            className="mb-2"
             style={{
               fontFamily: "var(--font-display)",
               fontStyle: "italic",
               fontWeight: 400,
-              fontSize: "clamp(1.8rem, 5vw, 2.8rem)",
+              fontSize: "clamp(1.6rem, 4vw, 2.6rem)",
               color: "#ffffff",
             }}
           >
             {site.name}
           </h1>
           <p
-            className="text-[0.6rem] tracking-[0.28em] uppercase mb-10"
+            className="text-[0.58rem] tracking-[0.28em] uppercase mb-10"
             style={{ color: "#ffffff" }}
           >
             {site.role}
@@ -65,10 +62,8 @@ export default function About() {
             </p>
             <p>
               In 2023, while studying in Cyprus, Abdulrazak founded{" "}
-              <strong style={{ color: "#ffffff", fontWeight: 500 }}>
-                Suavee
-              </strong>
-              , a contemporary fashion label focused on elevated streetwear and
+              <strong style={{ fontWeight: 600 }}>Suavee</strong>, a
+              contemporary fashion label focused on elevated streetwear and
               minimalist design. Established with a vision to merge modern
               culture with refined aesthetics, Suavee has become a platform
               through which he explores fashion, storytelling, and creative
@@ -98,25 +93,28 @@ export default function About() {
             </p>
             <p>
               In October 2025, Abdulrazak joined{" "}
-              <strong style={{ color: "#ffffff", fontWeight: 500 }}>
-                Fisco
-              </strong>
-              , an e-commerce company, where he currently serves in an Art
-              Direction role. Working within a commercial and fast-paced
-              environment has broadened his understanding of brand
-              communication, consumer engagement, and visual strategy. His
-              contributions focus on creating impactful visual experiences that
-              strengthen brand positioning while maintaining a strong creative
-              standard.
+              <strong style={{ fontWeight: 600 }}>Fisco</strong>, an e-commerce
+              company, where he currently serves in an Art Direction role.
+              Working within a commercial and fast-paced environment has
+              broadened his understanding of brand communication, consumer
+              engagement, and visual strategy. His contributions focus on
+              creating impactful visual experiences that strengthen brand
+              positioning while maintaining a strong creative standard.
             </p>
           </div>
         </div>
+
+        {/* Right side — portrait is visible here (spacer for layout) */}
+        <div className="hidden sm:block flex-1" aria-hidden="true" />
       </section>
 
-      {/* ── Pull-quote ── */}
+      {/* ── Section 2: Pull-quote on dark solid background ── */}
       <section
-        className="px-4 sm:px-8 py-12 md:py-24"
-        style={{ borderTop: "1px solid var(--line)" }}
+        className="px-4 sm:px-12 py-16 md:py-24"
+        style={{
+          background: "rgba(8,8,8,0.95)",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+        }}
       >
         <blockquote
           className="max-w-3xl mx-auto"
@@ -124,10 +122,7 @@ export default function About() {
         >
           <p
             className="font-light leading-snug"
-            style={{
-              fontSize: "clamp(1rem, 4vw, 1.6rem)",
-              color: "#ffffff",
-            }}
+            style={{ fontSize: "clamp(1rem, 4vw, 1.6rem)", color: "#ffffff" }}
           >
             &ldquo;I believe inspiration exists everywhere. From everyday
             interactions and environments to music, architecture, fashion, and
@@ -146,10 +141,23 @@ export default function About() {
         </blockquote>
       </section>
 
-      {/* ── Contact line ── */}
+      {/* ── Section 3: Full portrait only — visible when scrolled to bottom ── */}
+      <section className="relative" style={{ minHeight: "100svh" }}>
+        <img
+          src={PORTRAIT}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center top" }}
+        />
+      </section>
+
+      {/* ── Section 4: Contact ── */}
       <section
-        className="px-4 sm:px-8 py-8 sm:py-12 flex flex-wrap gap-6"
-        style={{ borderTop: "1px solid var(--line)" }}
+        className="px-4 sm:px-8 py-8 flex flex-wrap gap-6"
+        style={{
+          background: "rgba(8,8,8,0.95)",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+        }}
       >
         <a
           href={`mailto:${site.email}`}
