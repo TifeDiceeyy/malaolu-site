@@ -116,6 +116,15 @@ export default function About() {
               creating impactful visual experiences that strengthen brand
               positioning while maintaining a strong creative standard.
             </p>
+            <p style={{ fontStyle: "italic" }}>
+              &ldquo;I believe inspiration exists everywhere. From everyday
+              interactions and environments to music, architecture, fashion, and
+              human experiences, ideas constantly surround us. My process is
+              rooted in observation and curiosity, allowing me to discover
+              inspiration in places others may overlook. I actively place myself
+              in a position to recognize these ideas and translate them into
+              meaningful creative outcomes.&rdquo; — Malaolu Abdulrazak
+            </p>
           </div>
         </div>
       </section>
