@@ -5,7 +5,6 @@ export default function AudioToggle() {
   const { audioMuted, setAudioMuted } = useUI();
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Create audio element once on mount
   useEffect(() => {
     const audio = new Audio("/audio/ambient.mp3");
     audio.loop = true;
@@ -17,13 +16,11 @@ export default function AudioToggle() {
     };
   }, []);
 
-  // Play / pause whenever muted state changes
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     if (!audioMuted) {
       audio.play().catch(() => {
-        // Autoplay blocked by browser; revert to muted
         setAudioMuted(true);
         sessionStorage.setItem("audioMuted", "true");
       });
@@ -44,10 +41,10 @@ export default function AudioToggle() {
       aria-pressed={!audioMuted}
       aria-label={audioMuted ? "Unmute ambient audio" : "Mute ambient audio"}
       onClick={toggle}
-      className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
+      className="fixed bottom-6 left-6 z-30 text-[0.6rem] tracking-[0.28em] uppercase hover:opacity-60 transition-opacity duration-300"
       style={{ color: "var(--fg)", fontFamily: "var(--font-ui)" }}
     >
-      {audioMuted ? "Sound Off" : "Sound On"}
+      {audioMuted ? "unmute" : "mute"}
     </button>
   );
 }

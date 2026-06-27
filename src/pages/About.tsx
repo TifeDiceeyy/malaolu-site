@@ -1,8 +1,5 @@
 import { site } from "../data/site";
 
-// TODO(owner): replace "" with the public path to a portrait/studio image
-const HERO_IMAGE: string = "";
-
 type ExternalNavItem = Extract<(typeof site.nav)[number], { href: string }>;
 const suavee = site.nav.find(
   (item): item is ExternalNavItem => item.label === "Suavee",
@@ -10,95 +7,107 @@ const suavee = site.nav.find(
 
 export default function About() {
   return (
-    <article style={{ fontFamily: "var(--font-ui)" }}>
-      {/* ── Hero: full-bleed image + bio overlay ── */}
-      <section
-        className="relative min-h-[85vh] flex items-end"
-        style={{ background: "var(--bg)" }}
-      >
-        {/* Background — dark placeholder until owner supplies portrait */}
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ background: "var(--line)" }}
-        >
-          {HERO_IMAGE && (
-            <img
-              src={HERO_IMAGE}
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          )}
+    <article style={{ fontFamily: "var(--font-ui)", color: "#ffffff" }}>
+      {/* ── Hero: full-bleed portrait + bio overlay ── */}
+      <section className="relative min-h-[90vh] flex items-end">
+        {/* Portrait image */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/assets/malaolu/IMG_3695.jpg"
+            alt="Abdulrazak Olaide Malaolu"
+            className="w-full h-full object-cover"
+          />
         </div>
 
-        {/* Gradient overlay for text legibility */}
+        {/* Gradient so bio text reads over the image */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.3) 50%, transparent 100%)",
+              "linear-gradient(to top, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.5) 50%, transparent 100%)",
           }}
         />
 
-        {/* Bio */}
-        <div className="relative z-10 px-8 pb-14 w-full max-w-2xl">
+        {/* Bio panel */}
+        <div className="relative z-10 px-8 pb-16 w-full max-w-2xl">
           <h1
-            className="text-2xl font-light mb-1"
-            style={{ color: "var(--fg)", fontFamily: "var(--font-display)" }}
+            className="mb-1"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(1.8rem, 5vw, 2.8rem)",
+              color: "#ffffff",
+            }}
           >
             {site.name}
           </h1>
           <p
-            className="text-xs tracking-widest uppercase mb-10"
-            style={{ color: "var(--muted)" }}
+            className="text-[0.6rem] tracking-[0.28em] uppercase mb-10"
+            style={{ color: "#cccccc" }}
           >
             {site.role}
           </p>
 
           <div
             className="flex flex-col gap-5 text-sm leading-relaxed"
-            style={{ color: "var(--fg)" }}
+            style={{ color: "#f0f0f0" }}
           >
             <p>
               Abdulrazak Olaide Malaolu is a multidisciplinary creative director
               whose work spans fashion, styling, art direction, and visual
-              storytelling. His creative foundation is rooted in craftsmanship:
-              his journey began early through fashion design, embellishment, and
-              dressmaking — skills learned from his mother. That early exposure
-              to garment construction and detail cultivated a deep appreciation
-              for design and shaped his evolving career.
+              storytelling. With a creative foundation rooted in craftsmanship,
+              his journey began at an early age through fashion design,
+              embellishment, and dressmaking, skills he learned from his mother.
+              This early exposure to garment construction, detail, and artistic
+              expression cultivated a deep appreciation for design and laid the
+              groundwork for his evolving creative career.
             </p>
             <p>
-              In 2023, while studying in Cyprus, he founded{" "}
-              <strong style={{ color: "var(--fg)", fontWeight: 500 }}>
+              In 2023, while studying in Cyprus, Abdulrazak founded{" "}
+              <strong style={{ color: "#ffffff", fontWeight: 500 }}>
                 Suavee
               </strong>
               , a contemporary fashion label focused on elevated streetwear and
-              minimalist design. Built to merge modern culture with refined
-              aesthetics, Suavee became the platform through which he explores
-              fashion, storytelling, and creative expression. As Founder and
-              Creative Director, he leads the conceptualization and execution of
-              collections, brand campaigns, visual identity, and creative
-              strategy — ensuring a cohesive narrative across the brand.
+              minimalist design. Established with a vision to merge modern
+              culture with refined aesthetics, Suavee has become a platform
+              through which he explores fashion, storytelling, and creative
+              expression. As Founder and Creative Director, he leads the
+              conceptualization and execution of collections, brand campaigns,
+              visual identity development, and creative strategy, ensuring a
+              cohesive narrative across every aspect of the brand.
             </p>
             <p>
-              In 2024 he expanded into styling, deepening his interest in the
-              relationship between garments, people, environments, and
-              storytelling, and has since overseen the styling and creative
-              direction of Suavee's editorials, campaigns, and lookbooks. He
-              also leads Suavee's art direction across photography, campaign
-              development, concept creation, mood boards, casting, and set
-              design — driven by the belief that strong creative work is built
-              through consistency, clarity, and intentional storytelling.
+              His role extends beyond fashion design. In 2024, Abdulrazak
+              expanded his creative practice into styling, developing a stronger
+              interest in the relationship between garments, people,
+              environments, and storytelling. Since then, he has overseen the
+              styling and creative direction of Suavee's editorials, campaigns,
+              lookbooks, and visual projects. Through these works, he has
+              developed a distinctive approach that combines contemporary
+              fashion with thoughtful narratives and strong visual composition.
             </p>
             <p>
-              In October 2025, he joined{" "}
-              <strong style={{ color: "var(--fg)", fontWeight: 500 }}>
+              Alongside creative direction and styling, Abdulrazak is
+              responsible for the art direction of Suavee, shaping the brand's
+              visual language across photography, campaign development, concept
+              creation, mood boards, casting, set design, and overall brand
+              presentation. His work is driven by the belief that successful
+              creative projects are built through consistency, clarity, and
+              intentional storytelling.
+            </p>
+            <p>
+              In October 2025, Abdulrazak joined{" "}
+              <strong style={{ color: "#ffffff", fontWeight: 500 }}>
                 Fisco
               </strong>
-              , an e-commerce company, where he serves in an Art Direction role
-              — broadening his understanding of brand communication, consumer
-              engagement, and visual strategy in a fast-paced commercial
-              environment.
+              , an e-commerce company, where he currently serves in an Art
+              Direction role. Working within a commercial and fast-paced
+              environment has broadened his understanding of brand
+              communication, consumer engagement, and visual strategy. His
+              contributions focus on creating impactful visual experiences that
+              strengthen brand positioning while maintaining a strong creative
+              standard.
             </p>
           </div>
         </div>
@@ -114,19 +123,23 @@ export default function About() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           <p
-            className="text-xl sm:text-2xl font-light leading-snug"
-            style={{ color: "var(--fg)" }}
+            className="font-light leading-snug"
+            style={{
+              fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
+              color: "#ffffff",
+            }}
           >
-            &ldquo;I believe inspiration exists everywhere — from everyday
+            &ldquo;I believe inspiration exists everywhere. From everyday
             interactions and environments to music, architecture, fashion, and
-            human experiences. My process is rooted in observation and
-            curiosity, allowing me to discover inspiration in places others may
-            overlook, and to translate it into meaningful creative
-            outcomes.&rdquo;
+            human experiences, ideas constantly surround us. My process is
+            rooted in observation and curiosity, allowing me to discover
+            inspiration in places others may overlook. I actively place myself
+            in a position to recognize these ideas and translate them into
+            meaningful creative outcomes.&rdquo;
           </p>
           <footer
-            className="mt-8 text-xs tracking-widest uppercase"
-            style={{ color: "var(--muted)", fontFamily: "var(--font-ui)" }}
+            className="mt-8 text-[0.6rem] tracking-[0.28em] uppercase"
+            style={{ color: "#cccccc", fontFamily: "var(--font-ui)" }}
           >
             — {site.name}
           </footer>
@@ -135,13 +148,13 @@ export default function About() {
 
       {/* ── Contact line ── */}
       <section
-        className="px-8 py-12 flex flex-wrap gap-8 border-t"
-        style={{ borderColor: "var(--line)" }}
+        className="px-8 py-12 flex flex-wrap gap-8"
+        style={{ borderTop: "1px solid var(--line)" }}
       >
         <a
           href={`mailto:${site.email}`}
-          className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
-          style={{ color: "var(--muted)" }}
+          className="text-[0.6rem] tracking-[0.28em] uppercase hover:opacity-60 transition-opacity"
+          style={{ color: "#cccccc" }}
         >
           {site.email}
         </a>
@@ -150,8 +163,8 @@ export default function About() {
             href={suavee.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs tracking-widest uppercase hover:opacity-60 transition-opacity"
-            style={{ color: "var(--muted)" }}
+            className="text-[0.6rem] tracking-[0.28em] uppercase hover:opacity-60 transition-opacity"
+            style={{ color: "#cccccc" }}
           >
             Suavee Studios ↗
           </a>

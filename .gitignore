@@ -12,6 +12,10 @@ node_modules
 dist
 dist-ssr
 *.local
+tsconfig.*.tsbuildinfo
+
+# Raw source assets (large files — not for git)
+/assets/
 
 # Editor
 .vscode/*
@@ -23,3 +27,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.vercel
