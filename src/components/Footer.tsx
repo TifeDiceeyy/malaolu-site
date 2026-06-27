@@ -3,7 +3,7 @@ import { site } from "../data/site";
 type ExternalNavItem = Extract<(typeof site.nav)[number], { href: string }>;
 
 const suavee = site.nav.find(
-  (item): item is ExternalNavItem => item.label === "Suavee"
+  (item): item is ExternalNavItem => item.label === "Suavee",
 );
 
 export default function Footer() {
@@ -15,10 +15,7 @@ export default function Footer() {
         fontFamily: "var(--font-ui)",
       }}
     >
-      <p
-        className="text-xs tracking-wide"
-        style={{ color: "var(--muted)" }}
-      >
+      <p className="text-xs tracking-wide" style={{ color: "#ffffff" }}>
         {site.copyright}
       </p>
 
@@ -26,7 +23,7 @@ export default function Footer() {
         <a
           href={`mailto:${site.email}`}
           className="hover:opacity-80 transition-opacity"
-          style={{ color: "var(--muted)" }}
+          style={{ color: "#ffffff" }}
         >
           {site.email}
         </a>
@@ -36,7 +33,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
-            style={{ color: "var(--muted)" }}
+            style={{ color: "#ffffff" }}
           >
             Suavee Studios
           </a>

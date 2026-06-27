@@ -43,6 +43,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           inset: 0,
           background: "rgba(10,10,10,0.38)",
           zIndex: 1,
+          pointerEvents: "none",
         }}
       />
       {/* Skip-to-content — surfaces on focus for keyboard / AT users */}
